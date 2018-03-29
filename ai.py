@@ -45,9 +45,12 @@ class ReplayMemory(object):
     # Append events to memory's capacity
     def push(self, event):
         self.memory.append(event)
-
+        if len(self.memory) > self.capacity:
+            del self.memory[0]
 
 # Create Deep Q Learning Network
+
+
 class Dqn():
 
     def __init__(self, input_size, nb_action, gamma):
