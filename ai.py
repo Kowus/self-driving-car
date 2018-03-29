@@ -34,14 +34,20 @@ class Network(nn.Module):
         return q_values
 
 # Experience Replay
+
+
 class ReplayMemory(object):
 
     def __init__(self, capacity):
         self.capacity = capacity
         self.memory = []
 
-# Create Deep Q Learning Network
+    # Append events to memory's capacity
+    def push(self, event):
+        self.memory.append(event)
 
+
+# Create Deep Q Learning Network
 class Dqn():
 
     def __init__(self, input_size, nb_action, gamma):
